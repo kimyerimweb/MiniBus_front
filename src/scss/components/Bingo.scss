@@ -29,6 +29,8 @@
     gap: 4px;
 
     li {
+      cursor: pointer;
+      
       &.active {
         background-image: url('/static/icons/circle.svg');
         background-position: center;
