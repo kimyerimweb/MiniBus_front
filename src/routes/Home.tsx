@@ -3,7 +3,6 @@ import { useInView } from 'react-intersection-observer';
 import useSWRInfinite from 'swr/infinite';
 
 import { baseUrl } from '../apis/baseUrl';
-import Banner from '../components/Banner';
 import Loading from '../components/Loading';
 import PostList from '../components/PostList';
 import SelectorGroup from '../components/SelectorGroup';
@@ -11,72 +10,68 @@ import { useSelectIdArray } from '../hooks/useSelectId';
 import { fetcherWithParams } from '../utils/fetcher';
 
 export interface ImageProps {
-  id: number,
+  id: number
   url: string
 }
 
 export interface CommentProps {
-  id: number,
+  id: number
   user: {
-    id: number,
-    avatar: string,
+    id: number
+    avatar: string
     nickname: string
-  },
-  text: string,
-  createdAt: Date | string,
-  updatedAt: Date | string,
+  }
+  text: string
+  createdAt: Date | string
+  updatedAt: Date | string
 }
 
 export interface CommentsProps {
-  count: number,
+  count: number
   contents: CommentProps[] | []
 }
 
 export interface PostProps {
-  id: number,
+  id: number
   user: {
-    id: number,
-    email: string,
-    avatar: string,
-    nickname: string,
-  },
-  createdAt: Date | string,
-  updatedAt: Date | string,
-  transportation: string,
-  region: string,
-  text: string,
-  images: ImageProps[] | [],
+    id: number
+    email: string
+    avatar: string
+    nickname: string
+  }
+  createdAt: Date | string
+  updatedAt: Date | string
+  transportation: string
+  region: string
+  text: string
+  images: ImageProps[] | []
   like: {
-    count: number,
+    count: number
     users: number[]
-  },
+  }
   comments: {
-    count: number,
-    contents: CommentProps[] | [],
-  },
+    count: number
+    contents: CommentProps[] | []
+  }
 }
 
 function Home() {
   const pageSize = 5;
   const [endPointRef, isInView] = useInView();
   const [selectedSorting, setSelectdSorting] = useState('createdAt');
-  const [
-    selectedRegions,
-    handleChangeSelectedRegions,
-  ] = useSelectIdArray<string>([]);
-  const [
-    selectedTransportations,
-    handleChangeSelectedTransportations,
-  ] = useSelectIdArray<string>([]);
+  const [selectedRegions, handleChangeSelectedRegions] =
+    useSelectIdArray<string>([]);
+  const [selectedTransportations, handleChangeSelectedTransportations] =
+    useSelectIdArray<string>([]);
 
-  const getKey =
-  (pageNumber: number, previousPageData: PostProps[]) => {
+  const getKey = (pageNumber: number, previousPageData: PostProps[]) => {
     if (previousPageData && !previousPageData.length) {
       return null;
     } // 끝에 도달
 
     return [
-      `${baseUrl}/posts`, {
+      `${baseUrl}/posts`,
+      {
         start: pageNumber,
         size: pageSize,
         sorting: selectedSorting,
@@ -91,16 +86,12 @@ function Home() {
     isValidating, // 요청이나 갱신 로딩의 여부
     size,
     setSize,
-  } = useSWRInfinite(
-    getKey,
-    fetcherWithParams,
-    { refreshInterval: 60000 },
-  );
+  } = useSWRInfinite(getKey, fetcherWithParams, { refreshInterval: 60000 });
 
   useEffect(() => {
     // 사용자가 마지막 요소를 보고 있고, 로딩 중이 아니라면
     if (isInView && !isValidating) {
-      setSize(prevState => prevState + 1);
+      setSize((prevState) => prevState + 1);
     }
   }, [isInView, isValidating]);
 
@@ -109,32 +100,21 @@ function Home() {
   return (
     <div className="container">
       <div className="background">
-        <div className="row">
-          <div className="col-sm-4">
-            <Banner />
-          </div>
-        </div>
         <SelectorGroup
           selectedRegions={selectedRegions}
           selectedTransportations={selectedTransportations}
           setSelectdSorting={setSelectdSorting}
           handleChangeSelectedRegions={handleChangeSelectedRegions}
-          handleChangeSelectedTransportations
-            ={handleChangeSelectedTransportations}
+          handleChangeSelectedTransportations={
+            handleChangeSelectedTransportations
+          }
         />
         {!data ? <Loading /> : <PostList posts={datas} />}
-        {isValidating
-          ? <Loading />
-          : null}
-        {!isValidating
-          ? <div ref={endPointRef}>
-          load more posts...
-          </div>
-          : null}
+        {isValidating ? <Loading /> : null}
+        {!isValidating ? <div ref={endPointRef}>load more posts...</div> : null}
       </div>
     </div>
   );
 }
 
 export default Home;
-
