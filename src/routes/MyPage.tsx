@@ -227,9 +227,6 @@ function MyPage() {
                 <div className="mypage-info-item mypage-info-account">
                   <div>계정정보</div>
                   <div className="mypage-info-account-email">
-                    <div>
-                      <img src="static/icons/icon_kakao_simple.svg" alt="카카오" />
-                    </div>
                     {userInfo.email}
                   </div>
                 </div>

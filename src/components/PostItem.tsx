@@ -65,7 +65,7 @@ function PostItem({ post }: { post: PostProps }) {
             className="post-comment"
             onClick={handleCommentsView}
           >
-            <img src="static/icons/icon_comment.svg" alt="댓글 버튼" />
+            <i className="icon-comment"></i>
           </button>
           <div className="post-comment-count">
             {comments.count}

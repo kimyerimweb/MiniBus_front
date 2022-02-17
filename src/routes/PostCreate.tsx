@@ -101,7 +101,7 @@ function PostCreate() {
                   className="post_create-back"
                   onClick={() => navigate(-1)}
                 >
-                  <img src="/static/icons/arrow-left.svg" alt="뒤로가기" />
+                  <i className="icon-back" aria-label="뒤로가기"></i>
                 </button>
                 <h1>의견</h1>
                 <button

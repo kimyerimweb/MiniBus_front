@@ -75,7 +75,7 @@ function ImageInput({ imageFiles, setImageFiles }:ImageInputProps) {
           htmlFor="images"
           onClick={handleClickUploadButton}
           className="image-upload-btn">
-          <img src="../static/icons/icon-camera.svg" alt="사진 첨부" />
+          <i className="icon-camera"></i>
           <span>{imageFiles.length}/10</span>
         </label>
         <input
@@ -98,7 +98,7 @@ function ImageInput({ imageFiles, setImageFiles }:ImageInputProps) {
                 value={image[1]}
                 className="preview-delete-btn"
               >
-                <img src="/static/icons/icon_cancel.svg" alt="선택한 이미지 삭제" />
+                <i className="icon-cancel"></i>
               </button>
               <div className="preview-image">
                 <img

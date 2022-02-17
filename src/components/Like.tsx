@@ -41,8 +41,8 @@ function Like({ postId, isLikeActive, setIsLikeActive }: LikeProps) {
       >
         <div className="post-like-btn">
           {isLikeActive
-            ? <img src="..\static\icons\icon_like_pressed.svg" alt="추천 버튼" />
-            : <img src="..\static\icons\icon_like_unpressed.svg" alt="추천 버튼" />
+            ? <i className="icon-press-like" aria-label="좋아요 취소"></i>
+            : <i className="icon-unpress-like" aria-label="좋아요"></i>
           }
         </div>
       </button>
