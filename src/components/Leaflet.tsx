@@ -6,7 +6,7 @@ function Leaflet() {
       <section className="leaflet">
         <div className="leaflet-container">
           <h1 className="logo">
-            <img src="/static/icons/neibus-string-logo.svg" alt="네이버스" />
+            <i className="icon-logo"></i>
           </h1>
           <p className="slogan">
             <span className="sr-only">지루한 이동 시간을 힙하게</span>
@@ -70,17 +70,12 @@ function Leaflet() {
             <ul className="external-link-list">
               <a href="" className="external-link-item">
                 <li>
-                  <img src="/static/icons/neibus.svg" alt="네이버스로 이동" />
+                  <i className="icon-instagram" aria-label="인스타그램으로 이동"></i>
                 </li>
               </a>
               <a href="" className="external-link-item">
                 <li>
-                  <img src="/static/icons/instagram.svg" alt="인스타그램으로 이동" />
-                </li>
-              </a>
-              <a href="" className="external-link-item">
-                <li>
-                  <img src="/static/icons/facebook.svg" alt="페이스북으로 이동" />
+                  <i className="icon-facebook" aria-label="페이스북으로 이동"></i>
                 </li>
               </a>
             </ul>

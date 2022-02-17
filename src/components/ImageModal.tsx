@@ -13,7 +13,7 @@ function ImageModal({ isOpen, closeModal, images }: {
     <div className={isOpen ? 'modal openModal' : 'modal'}>
       <section>
         <button onClick={closeModal}>
-          <img src="../static/icons/icon_cancel.svg" alt="닫기 버튼" />
+          <i className="icon-cancel"></i>
         </button>
         <Swiper
           modules={[Navigation, Pagination]}

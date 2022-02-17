@@ -55,7 +55,7 @@ function Report () {
             <header className="report_header">
               <h2>신고하기</h2>
               <button onClick={() => { navigate(-1); }}>
-                <img src="/static/icons/cancel-black.svg" alt="신고창 닫기" />
+                <i className="icon-cancel" aria-label="신고창 닫기"></i>
               </button>
             </header>
           </div>

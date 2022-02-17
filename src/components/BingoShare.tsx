@@ -52,7 +52,7 @@ function BingoShare({
           <header className="col-sm-4 bingo-share-header">
             <h2>내 빙고 공유하기</h2>
             <button onClick={onClickShare}>
-              <img src="/static/icons/cancel-black.svg" alt="공유 취소" />
+              <i className="icon-cancle"></i>
             </button>
           </header>
           <section className="col-sm-4 bingo-share-contents" ref={captureRef}>
@@ -74,16 +74,10 @@ function BingoShare({
           <footer className="col-sm-4">
             <ul className="bingo-share-social">
               <li>
-                <img src="static/icons/icon-facebook.svg" alt="페이스북에 공유" />
+                <i className="icon-facebook" aria-label="페이스북에 공유"></i>
               </li>
               <li>
-                <img src="static/icons/icon-twitter.svg" alt="트위터에 공유" />
-              </li>
-              <li>
-                <img src="static/icons/icon-kakaotalk.svg" alt="카카오톡에 공유" />
-              </li>
-              <li>
-                <img src="static/icons/icon-link.svg" alt="링크 공유" />
+                <i className="icon-instagram" aria-label="인스타그램에 공유"></i>
               </li>
             </ul>
           </footer>

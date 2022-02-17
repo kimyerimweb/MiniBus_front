@@ -5,9 +5,10 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import webpack, { Configuration as WebpackConfiguration } from 'webpack';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 interface Configuration extends WebpackConfiguration {
-  devServer?: WebpackDevServerConfiguration;
+  devServer?: WebpackDevServerConfiguration
 }
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -69,8 +70,11 @@ const config: Configuration = {
     new ForkTsCheckerWebpackPlugin({
       async: false,
     }),
-    new webpack.EnvironmentPlugin({ NODE_ENV: isDevelopment ? 'development' : 'production' }),
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: isDevelopment ? 'development' : 'production',
+    }),
     new CleanWebpackPlugin(),
+    new BundleAnalyzerPlugin(),
   ],
   output: {
     path: path.join(__dirname, 'dist'),

@@ -74,7 +74,7 @@ function WriteMetaInfo({ isPost, id, user, createdAt, updatedAt }: {
         </div>
         <div className="write_meta_info-options">
           <div onClick={handleOptionsView} >
-            <img src="..\static\icons\icon_options.svg" alt="옵션 버튼" />
+            <i className="icon-more"></i>
             {optionsView &&
             <Options
               isPost={isPost}
