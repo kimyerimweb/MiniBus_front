@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import Header from '../components/Header';
 import Leaflet from '../components/Leaflet';
-import NavigationBar from '../components/NavigationBar';
+import Navigation from '../components/Navigation';
 import Bingo from './Bingo';
 import Error from './Error';
 import Home from './Home';
@@ -39,7 +39,7 @@ function App() {
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/error" element={<Error />} />
         </Routes>
-        <NavigationBar />
+        <Navigation />
       </div>
     </div>
   );
