@@ -52,7 +52,7 @@ function BingoShare({
           <header className="col-sm-4 bingo-share-header">
             <h2>내 빙고 공유하기</h2>
             <button onClick={onClickShare}>
-              <i className="icon-cancle"></i>
+              <i className="icon-cancel"></i>
             </button>
           </header>
           <section className="col-sm-4 bingo-share-contents" ref={captureRef}>
