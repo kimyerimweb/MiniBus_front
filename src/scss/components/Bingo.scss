@@ -29,6 +29,8 @@
     gap: 4px;
 
     li {
+      cursor: pointer;
+      
       &.active {
         background-position: center;
         background-repeat: no-repeat;
